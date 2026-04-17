@@ -1,0 +1,29 @@
+.topbar{
+    background-color: var(--mat-sys-inverse-primary);
+    margin-bottom: 1rem;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+.matbtn{
+    margin-left: 2rem;
+}
+
+/*  */
+.topbar {
+    background-color: var(--mat-sys-inverse-primary);
+}
+
+.menu {
+    /* margin-left: 5rem; */
+}  
+
+.icon{
+    vertical-align: top;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}

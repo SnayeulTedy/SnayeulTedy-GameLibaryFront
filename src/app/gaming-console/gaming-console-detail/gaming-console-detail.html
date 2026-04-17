@@ -1,0 +1,26 @@
+<mat-card appearance="outlined" class="detail-card">
+    <mat-card-header>
+        <div mat-card-avatar>
+            <button matMiniFab aria-label="Example icon button with a menu icon" routerLink="/consoles">
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+        </div>
+        <mat-card-title> {{device()?.name}}</mat-card-title>
+        <mat-card-subtitle>{{device()?.constructor}}</mat-card-subtitle>
+    </mat-card-header>
+</mat-card>
+
+<mat-card appearance="outlined" class="detail-card">
+    <img class="card-img" mat-card-image [src]="device()?.imgUrl">
+</mat-card>
+
+<mat-card appearance="outlined" class="detail-card">
+    <mat-card-header>
+        <mat-card-title>Informations</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+        <p>Compute power (TFlops) : {{device()?.powerTFlops}}</p>
+        <p>Release year : {{device()?.releaseYear}}</p>
+        <p>{{device()?.description}}</p>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,45 @@
+<div class="header-container">
+    <mat-form-field class="search-field" appearance="outline">
+        <mat-label>Search for a gaming console</mat-label>
+        <mat-icon matPrefix>search</mat-icon>
+        <input matInput type="text" [(ngModel)]="value" (ngModelChange)="onSearchChanged()">        
+        @if (value) {
+        <button matSuffix matIconButton aria-label="Clear" (click)="value=''; onSearchChanged()">
+            <mat-icon>close</mat-icon>
+        </button>
+        }
+    </mat-form-field>
+     <button matFab extended routerLink="/consoles/add">
+        <mat-icon>add</mat-icon>
+        Add new gaming console
+      </button>
+</div>
+
+<div class="console-container">
+    @for (device of devices(); track $index) {
+    <mat-card class="console-card" appearance="outlined">
+
+        <mat-card-header>
+            <mat-card-title>{{ device.name }}</mat-card-title>
+            <mat-card-subtitle>{{ device.constructor }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <div class="card-content-container">
+            <img class="card-img" mat-card-image [src]="device.imgUrl">
+            <mat-card-content class="card-content">
+                <p>
+                    {{ device.description.length > 120 ? (device.description | slice:0:120) + '...' : device.description }}
+                    @if(device.description.length == 0) {
+                        No description
+                    }
+            </mat-card-content>
+            <mat-card-actions>
+                <button matButton [routerLink]="['/consoles', device.uuid]"><mat-icon>visibility</mat-icon> VIEW</button>
+                <button matButton [routerLink]="['/', 'consoles', 'edit', device.uuid]"><mat-icon>edit</mat-icon> EDIT</button>
+                <button matButton color="warn" (click)="onDelete(device.uuid)"><mat-icon>delete</mat-icon> DELETE</button>
+            </mat-card-actions>
+        </div>
+
+    </mat-card>
+    }
+</div>

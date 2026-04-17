@@ -1,0 +1,43 @@
+<form [formGroup]="form" (submit)="onSubmit()">
+    <div class="column">
+        <div class="row">
+            <mat-form-field appearance="outline" class="size">
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="size">
+                <mat-label>Constructor</mat-label>
+                <input matInput formControlName="constructor">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="grow">
+                <mat-label>Release Year</mat-label>
+                <input matInput formControlName="releaseYear" type="number">
+            </mat-form-field>
+            <mat-form-field appearance="outline" class="grow">
+                <mat-label>Power (TFlops)</mat-label>
+                <input matInput formControlName="powerTFlops" type="number">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="size">
+                <mat-label>Image URL</mat-label>
+                <input matInput formControlName="imgUrl">
+            </mat-form-field>
+        </div>
+        <div class="row">
+            <mat-form-field appearance="outline" class="size">
+                <mat-label>Description</mat-label>
+                <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+        </div>
+        <button routerLink="/consoles/add" [disabled]="form.invalid" matFab extended>   
+            <mat-icon>add</mat-icon>
+            Create
+        </button>
+
+    </div>
+</form>

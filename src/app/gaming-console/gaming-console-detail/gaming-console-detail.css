@@ -1,0 +1,9 @@
+.detail-card {
+    padding-left: 1rem;
+    margin: 1rem;
+}
+
+.card-img {
+    align-self: center;
+    max-width: 300px;
+}

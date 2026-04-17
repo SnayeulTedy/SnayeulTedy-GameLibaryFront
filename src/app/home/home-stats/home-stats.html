@@ -1,0 +1,69 @@
+<div class="container-row">
+    <p>
+        The Game Lib app lets you easily manage your collection of video games and consoles!
+        <br>You can track your progress in each game and optimize your gaming sessions.
+        <br>Start by browsing the app and adding your consoles and games.
+    </p>
+</div>
+
+<div class="container-row">
+    <mat-card appearance="outlined" class="stat-card">
+        <mat-card-header>
+            <div mat-card-avatar>
+                <span class="material-symbols-outlined icon">joystick</span>
+            </div>
+            <mat-card-title>Gaming devices</mat-card-title>
+            <mat-card-subtitle>Count</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="text-style">
+            {{ stats()?.gamingDeviceCount}}
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button matButton routerLink="/consoles">Go to gaming devices</button>
+        </mat-card-actions>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="stat-card">
+        <mat-card-header>
+             <div mat-card-avatar>
+                <span class="material-symbols-outlined icon">crossword</span>
+            </div>
+            <mat-card-title>Games</mat-card-title>
+            <mat-card-subtitle>Count</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="text-style">
+            {{ stats()?.gameCount}}
+        </mat-card-content>
+        <mat-card-actions align="end">
+            <button matButton routerLink="/games">Go to games</button>
+        </mat-card-actions>
+    </mat-card>
+</div>
+
+<div class="container-row">
+    <mat-card appearance="outlined" class="stat-card">
+        <mat-card-header>
+             <div mat-card-avatar>
+                <span class="material-symbols-outlined icon">trophy</span>
+            </div>
+            <mat-card-title>Completed games</mat-card-title>
+            <mat-card-subtitle>Count</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="text-style">
+            {{ stats()?.completedGamesCount}}
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card appearance="outlined" class="stat-card">
+        <mat-card-header>
+             <div mat-card-avatar>
+                <span class="material-symbols-outlined icon">chart_data</span>
+            </div>
+            <mat-card-title>Game completion rate</mat-card-title>
+            <mat-card-subtitle>Average</mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content class="text-style">
+            {{ stats()?.completionRateAvg}}%
+        </mat-card-content>
+    </mat-card>
+</div>
