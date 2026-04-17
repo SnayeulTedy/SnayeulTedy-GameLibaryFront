@@ -18,14 +18,14 @@ export const routes: Routes = [
         "path" : "consoles",
         "loadComponent" : () => import('./gaming-console/gaming-console-list/gaming-console-list').then(m => m.GamingConsoleList)
     },
-    // {
-    //     path: "games/:uuid/edit",
-    //     loadComponent: () => import("./game/game-edit/game-edit").then(m => m.GameEdit)
-    // },   
-    // {
-    //     path: "games/new",
-    //     loadComponent: () => import("./game/game-add/game-add").then(m => m.GameAdd)
-    // },
+    {
+        "path": "games/:uuid/edit",
+        "loadComponent": () => import("./game/game-edit/game-edit").then(m => m.GameEdit)
+    },   
+    {
+        "path": "games/add",
+        "loadComponent": () => import("./game/game-add/game-add").then(m => m.GameAdd)
+    },
     {
         "path" : "games",
         "loadComponent" : () => import('./game/game-list/game-list').then(m => m.GameList)

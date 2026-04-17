@@ -1,0 +1,36 @@
+.header-card{
+    margin: 1rem 10rem;
+    padding: 1rem auto;
+}
+
+.container-header{
+    display: flex;
+}
+
+.container-header button {
+    margin: 0.8rem;
+}
+
+h1 {
+    margin-left: 1rem;
+    align-content: center;
+}
+
+.spacer{
+    flex: 1 1 auto;
+}
+
+.table-list {
+   margin: 2rem 10rem;
+   padding: 1rem;
+}
+
+.table-img{
+    max-width: 60px;
+    padding: 0.5rem;
+}
+
+.container-action{
+    display: flex;
+    justify-content: end;
+}
