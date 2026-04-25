@@ -2,7 +2,7 @@
     <div class="container-header">
         <h1>Game list</h1>
         <span class="spacer"></span>
-        <button matFab extended routerLink="/games/new">
+        <button matFab extended routerLink="/games/add">
             <mat-icon>add</mat-icon>
             Add new game
         </button>
@@ -72,9 +72,9 @@
                     <button matIconButton [routerLink]="['/', 'games', game.uuid ,'edit']">
                         <mat-icon>edit</mat-icon>
                     </button>
-                    <!-- <button matIconButton>
+                    <button matIconButton (click)="onDelete(game.uuid)">
                         <mat-icon>delete</mat-icon>
-                    </button> -->
+                    </button>                
                 </div>
             </td>
         </ng-container>

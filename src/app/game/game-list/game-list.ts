@@ -11,7 +11,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTableDataSource, MatTableModule } from '@angular/material/table';
-import { RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { GameService } from '../../services/game.service';
 import { Game } from '../../models/game.interface';
   
@@ -37,6 +37,9 @@ import { Game } from '../../models/game.interface';
 })
 export class GameList implements OnInit, AfterViewInit {
   private gameService = inject(GameService);
+  
+  private router = inject(Router);
+  private route = inject(ActivatedRoute);
 
   public games = signal<Game[]>([]);
   public searchValue: string = "";
@@ -67,4 +70,19 @@ export class GameList implements OnInit, AfterViewInit {
       }
     });
   }
+
+  onDelete(gameUuid: string) {
+    if (confirm("Are you sure you want to delete this game?")) {
+      this.gameService.delete(gameUuid).subscribe({
+        next: () => {
+          console.log("Game deleted successfully");
+          this.ngAfterViewInit();
+        },
+        error: (err) => {
+          console.error("Error deleting game", err);
+        }
+      });
+    }
+  }
+
 }

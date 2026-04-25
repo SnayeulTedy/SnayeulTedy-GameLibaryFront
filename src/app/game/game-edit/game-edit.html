@@ -1,1 +1,87 @@
-<p>game-edit works!</p>
+<mat-card appearance="outlined" class="detail-card">
+    <mat-card-header class="container-row">
+        <div mat-card-avatar>
+            <button matMiniFab routerLink="/games">
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+        </div>
+        <h2>Edit game</h2>
+    </mat-card-header>
+</mat-card>
+
+<mat-card appearance="outlined" class="detail-card">
+    <mat-card-header class="container-row">
+        <mat-card-title>Gaming console informations</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+
+        <form [formGroup]="form" (submit)="onSubmit()">
+
+            <div class="row">
+                <div class="column">
+                    <div class="row">
+                        <mat-form-field appearance="outline" class="size-100">
+                            <mat-label>Name</mat-label>
+                            <input matInput formControlName="name">
+                        </mat-form-field>
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance="outline" class="size-100">
+                            <mat-label>Publisher</mat-label>
+                            <input matInput formControlName="publisher">
+                        </mat-form-field>
+                    </div>
+
+                    <div class="row">
+                        <mat-form-field appearance="outline" class="grow-2">
+                            <mat-label>Type</mat-label>
+                            <mat-select formControlName="type">
+                                @for (type of gameTypes; track $index) {
+                                <mat-option [value]="type">{{type}}</mat-option>
+                                }
+                            </mat-select>
+                        </mat-form-field>
+
+                    </div>
+                    <div class="row">
+                        <mat-form-field appearance="outline" class="size-100">
+                            <mat-label>Image URL</mat-label>
+                            <input matInput formControlName="imgUrl">
+                        </mat-form-field>
+                    </div>
+
+
+
+
+                    <div class="row">
+                        <mat-slide-toggle formControlName="completed">Story completed</mat-slide-toggle>
+
+                        <div class="container-progression">
+                            <mat-label>Progression</mat-label>
+                            <mat-slider showTickMarks discrete>
+                                <input matSliderThumb formControlName="completionRate" min="0" max="100" step="1"
+                                    thumbLabel>
+                            </mat-slider>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="column">
+                    <img mat-card-image [src]="this.form.controls.imgUrl.value">
+                </div>
+            </div>
+            <div class="footer">
+                <button matFab extended (click)="onDelete()">
+                    <mat-icon>delete</mat-icon>
+                    Delete
+                </button>
+                <button matFab extended [disabled]="form.invalid" type="submit">
+                    <mat-icon>autorenew</mat-icon>
+                    Update
+                </button>
+            </div>
+
+        </form>
+
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,44 @@
+.detail-card {
+    padding-left: 1rem;
+    margin: 1rem;
+}
+
+.container-row{
+    display: flex;
+    align-items: baseline;
+}
+
+h2 {
+    margin-left: 1rem;
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+}
+
+.row {
+    display: flex;
+    gap: 1rem;
+}
+
+.grow-2 {
+    flex-grow: 2;
+}
+
+.size-100 {
+    width: 100%;
+}
+
+mat-card-content{
+    margin-top: 1rem;
+}
+
+.footer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
